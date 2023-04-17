@@ -13,10 +13,12 @@ model Project {
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
   name        String
-  description String
+  description String      @db.VarChar(500))
   githubUrl   String?
+  youtubeUrl  String?
   websiteUrl  String?
   image       String?
+  type        String    @default("project")
   Spotlight   Spotlight[]
 }
 

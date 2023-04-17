@@ -4,14 +4,15 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import ArrowUpSvg from './ArrowUp';
 import GithubIcon from './GithubIcon';
+import GithubIconButton from './GithubIconButton';
 
 function Spotlight() {
   const { data } = api.projects.getSpotlight.useQuery();
 
   return (
-    <div className='w-full  bg-pink mt-20 flex flex-col py-12 gap-12 md:gap-16 items-center px-4 xs:px-4 sm:px-[5%] md:px-[5%] lg:px-[15%]'>
-      <text className='text-xl leading-tight font-medium text-text'>Project spotlight</text>
-      <div className='flex flex-col md:flex-row  w-full items-start justify-center gap-4 md:gap-12'>
+    <div className='w-full  bg-fg mt-20 flex flex-col py-12 gap-12 md:gap-16 items-center px-4 xs:px-4 sm:px-[5%] md:px-[5%] lg:px-[15%]'>
+      <text className='text-xl leading-tight font-medium text-text'>Today's spotlight</text>
+      <div className='flex flex-col md:flex-row-reverse  w-full items-start justify-center gap-4 md:gap-12'>
         <div
           className='aspect-[6/4] overflow-hidden rounded-[28px] relative h-full w-full cursor-pointer group'
         >
@@ -58,9 +59,7 @@ function Spotlight() {
           <text className='text-sm max-w-[80%]'>{data?.project.description}</text>
           <div className='flex flex-row items-center content-start mt-4'>
             {data?.project.githubUrl &&
-              <a>
-                <GithubIconButton url={data.project.githubUrl} />
-              </a>
+              <GithubIconButton url={data.project.githubUrl} />
             }
           </div>
         </div>
@@ -72,10 +71,3 @@ function Spotlight() {
 export default Spotlight;
 
 
-const GithubIconButton = ({ url }: { url: string; }) => {
-  return (
-    <a href={url}>
-      <GithubIcon />
-    </a>
-  );
-};
