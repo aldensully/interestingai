@@ -1,10 +1,7 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
-
+import { Analytics } from '@vercel/analytics/react';
 import { api } from "@/utils/api";
-import { Variants, motion, useScroll } from "framer-motion";
-import { useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Spotlight from "@/components/Spotlight";
 import NewProjects from "@/components/NewProjects";
@@ -25,6 +22,7 @@ const Home: NextPage = () => {
         <meta name="description" content="The freshest projects in ai, updated every day" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Analytics />
       <main className='w-full flex flex-col h-full bg-bg min-h-screen '>
         <Navbar />
         <Spotlight />
