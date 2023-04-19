@@ -10,7 +10,7 @@ function Spotlight() {
   const { data } = api.projects.getSpotlight.useQuery();
 
   return (
-    <div className='w-full  bg-fg mt-20 flex flex-col py-12 gap-12 md:gap-16 items-center px-4 xs:px-4 sm:px-[5%] md:px-[5%] lg:px-[15%]'>
+    <div className='w-full  bg-fg py-20 flex flex-col py-12 gap-12 md:gap-16 items-center px-4 xs:px-4 sm:px-[5%] md:px-[5%] lg:px-[15%]'>
       <text className='text-xl leading-tight font-medium text-text'>Today's spotlight</text>
       <div className='flex flex-col md:flex-row-reverse  w-full items-start justify-center gap-4 md:gap-12'>
         <div

@@ -27,8 +27,15 @@ function ListItem(props: Props) {
         <div className='absolute hidden group-hover:flex transition-all duration-300 ease-in-out left-0 index-1000 top-0 right-0 bottom-0 bg-gradient-to-b from-[transparent] to-[#00000022]' />
       </div> */}
       <div className='flex flex-col'>
-        <text className='text-text text-md font-medium'>{props.project.name}</text>
-        <text>{props.project.description}</text>
+        {props.project.githubUrl || props.project.websiteUrl ?
+          <a href={props.project.websiteUrl ?? props.project.githubUrl ?? ''}>
+            <text className='text-text text-md font-medium'>{props.project.name}</text>
+          </a>
+          :
+          <text className='text-text text-md font-medium'>{props.project.name}</text>
+
+        }
+        <text className='max-h-[100px]'>{props.project.description}</text>
       </div>
       {props.project.githubUrl &&
         <GithubIconButton url={props.project.githubUrl} />

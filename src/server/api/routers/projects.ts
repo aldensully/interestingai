@@ -7,8 +7,11 @@ export const projectsRouter = createTRPCRouter({
   }),
   getNew: publicProcedure.query(({ ctx }) => {
     return ctx.prisma.project.findMany({
+      where: {
+        type: 'project'
+      },
       orderBy: {
-        createdAt: 'desc'
+        createdAt: 'desc',
       }
     });
   }),

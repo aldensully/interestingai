@@ -4,7 +4,7 @@ import ListItem from './ListItem';
 
 function NewProjects() {
   const { data } = api.projects.getNew.useQuery();
-  const [displayType, setDisplayType] = React.useState<'grid' | 'list'>('list');
+  const [displayType, setDisplayType] = React.useState<'grid' | 'list'>('grid');
 
   const handleDisplayType = () => {
     if (displayType === 'grid') {
@@ -18,9 +18,9 @@ function NewProjects() {
     <div className='w-full h-full flex flex-col px-4 xs:px-4 sm:px-[5%] md:px-[5%] lg:px-[5%] py-12 gap-8'>
       <div className='flex flex-row items-center justify-between w-full '>
         <text className='text-text text-lg'>New AI projects</text>
-        <button onClick={handleDisplayType}>
+        {/* <button onClick={handleDisplayType}>
           <text className='text-text text-sm'>{displayType === 'grid' ? 'List' : 'Grid'}</text>
-        </button>
+        </button> */}
       </div>
       {displayType === 'list' ?
         <ul className='flex flex-col w-full items-start gap-4'>
