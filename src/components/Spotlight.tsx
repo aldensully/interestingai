@@ -16,15 +16,17 @@ function Spotlight() {
         <div
           className='aspect-[6/4] overflow-hidden rounded-[28px] relative h-full w-full cursor-pointer group'
         >
-          {data?.project.image &&
-            <Image src={`https://d2w0z5ojnqclxw.cloudfront.net/${data?.project.image}`}
-              alt='website-screenshot'
-              fill
-              className='group-hover:scale-105 transition-all duration-300 ease-in-out
+          <a href={data?.project.websiteUrl ?? data?.project.githubUrl ?? ''}>
+            {data?.project.image &&
+              <Image src={`https://d2w0z5ojnqclxw.cloudfront.net/${data?.project.image}`}
+                alt='website-screenshot'
+                fill
+                className='group-hover:scale-105 transition-all duration-300 ease-in-out
                object-cover w-full h-full rounded-[28px] z-[0]'
-            />
-          }
-          <div className='absolute hidden group-hover:flex transition-all duration-300 ease-in-out left-0 index-1000 top-0 right-0 bottom-0 bg-gradient-to-b from-[transparent] to-[#00000022]' />
+              />
+            }
+          </a>
+          {/* <div className='absolute hidden group-hover:flex transition-all duration-300 ease-in-out left-0 index-1000 top-0 right-0 bottom-0 bg-gradient-to-b from-[transparent] to-[#00000022]' />
           {data?.project.websiteUrl &&
             <button
               onClick={() => console.log('clicked')}
@@ -46,7 +48,7 @@ function Spotlight() {
               Upvote
             </text>
             <ArrowUpSvg />
-          </button>
+          </button> */}
         </div>
         <div className='h-full items-start w-full flex justify-start gap-2 flex-col'>
           {data?.project.websiteUrl ?
